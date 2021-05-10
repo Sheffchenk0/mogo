@@ -225,10 +225,17 @@ h6 {
     padding: 80px 0 80px;
 }
 
+.section--devices {
+    padding-bottom: 0px;
+    background: url("../images/forest.jpg") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
 .section__header {
     width: 100%;
     max-width: 950px;
-    margin: 0 auto 40px;
+    margin: 0 auto 55px;
     text-align: center;
 }
 
@@ -346,4 +353,58 @@ h6 {
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
+}
+
+
+/* Services */
+
+.services {
+    display: flex;
+}
+
+.services__item {
+    flex: 1 1 0;
+    padding: 25px 25px 25px 90px;
+    position: relative;
+}
+
+.services__logo {
+    position: absolute;
+    top: 25;
+    left: 30px;
+    color: #95e1d3;
+    font-size: 32px;
+}
+
+.services__title {
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.services__hr {
+    height: 1px;
+    border: 0;
+    background-color: #e5e5e5;
+}
+
+
+/* Devices */
+
+.devices {
+    width: 100%;
+    max-width: 630px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.devices__item {
+    display: block;
+}
+
+.devices__item--iphone {
+    position: absolute;
+    z-index: 1;
+    right: -55px;
+    bottom: -85px;
 }
