@@ -625,10 +625,12 @@ input:focus {
 }
 
 .reviews__photo {
-    top: 0;
-    left: 0;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #95e1d3;
+    min-width: 148px;
+    height: 148px;
 }
 
 .reviews__photo.border--none {
@@ -653,6 +655,8 @@ input:focus {
     font-size: 24px;
     color: black;
     font-family: 'Kaushan Script', cursive;
+    display: flex;
+    align-items: center;
 }
 
 .reviews__author::before {
@@ -663,6 +667,12 @@ input:focus {
     height: 3px;
     background-color: #f38181;
     margin-right: 10px;
+}
+
+.reviews__author__img {
+    margin-left: 20px;
+    width: 35px;
+    display: none;
 }
 
 
@@ -1143,6 +1153,38 @@ input:focus {
         width: 33.333333%;
         max-width: 380px;
     }
+    /* We do */
+    .wedo {
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .wedo__item:first-of-type {
+        display: none;
+    }
+    .wedo__item {
+        width: 80%;
+    }
+    .drop_menu__text {
+        height: 350px;
+    }
+    /* Review */
+    .reviews {
+        margin: 0 -15px;
+        padding: 0px 60px;
+    }
+    .reviews__text {
+        font-size: 18px;
+    }
+    .reviews__author {
+        font-size: 18px;
+    }
+    .reviews__author::before {
+        height: 2px;
+        width: 52px;
+    }
+    .reviews__content {
+        margin-left: 30px;
+    }
 }
 
 @media (max-width: 990px) {
@@ -1199,7 +1241,11 @@ input:focus {
         padding: 40px 0;
     }
     .section--devices {
+        padding-top: 40px;
         padding-bottom: 0px;
+    }
+    .section--grey {
+        padding: 40px 0;
     }
     /* Intro */
     .nav {
@@ -1235,6 +1281,22 @@ input:focus {
         margin-right: 50px;
         bottom: -50px;
     }
+    /* Reviews */
+    .reviews {
+        padding: 0px 30px;
+    }
+    .reviews__photo {
+        display: none;
+    }
+    .reviews__content {
+        margin-left: 0px;
+    }
+    .reviews__author__img {
+        display: inline-block;
+    }
+    .reviews__text {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -1249,6 +1311,16 @@ input:focus {
         margin: 20px auto;
     }
     /* Section */
+    .section {
+        padding: 25px 0;
+    }
+    .section--devices {
+        padding-top: 25px;
+        padding-bottom: 0px;
+    }
+    .section--grey {
+        padding: 25px 0;
+    }
     .section__suptitle {
         font-size: 18px;
     }
@@ -1297,6 +1369,40 @@ input:focus {
         width: 180px;
         left: 50%;
     }
+    /* We do */
+    .wedo {
+        margin: 0 -15px;
+    }
+    .wedo__item {
+        width: 100%;
+    }
+    .drop_menu__item {
+        margin-bottom: 0px;
+    }
+    .drop_menu__header {
+        padding-left: 30px;
+    }
+    .drop_menu__header>.icon {
+        right: 30px;
+    }
+    /* Reviews */
+    .reviews {
+        padding: 0px 30px;
+    }
+    .reviews__text {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+    .reviews__author {
+        font-size: 16px;
+    }
+    .reviews__author::before {
+        width: 40px;
+    }
+    .reviews__author__img {
+        width: 30px;
+        margin-left: 15px;
+    }
 }
 
 @media (max-width: 485px) {
@@ -1315,6 +1421,24 @@ input:focus {
     .devices__item--iphone {
         width: 130px;
         left: 50%;
+    }
+    /* Reviews */
+    .reviews {
+        padding: 0px 20px;
+    }
+    .reviews__text {
+        font-size: 14px;
+        line-height: 1.15;
+    }
+    .reviews__author {
+        font-size: 14px;
+    }
+    .reviews__author::before {
+        width: 40px;
+    }
+    .reviews__author__img {
+        width: 25px;
+        margin-left: 13px;
     }
 }
 
