@@ -46,6 +46,7 @@ input:focus {
     background: url("../images/intro.jpg") center no-repeat;
     background-size: cover;
     position: relative;
+    min-height: 820px;
 }
 
 .intro__inner {
@@ -118,6 +119,10 @@ input:focus {
     font-size: 14px;
 }
 
+.nav.mobile {
+    display: none;
+}
+
 .nav__link {
     color: #fff;
     text-decoration: none;
@@ -159,6 +164,52 @@ input:focus {
 
 .nav__link:hover::after {
     width: 100%;
+}
+
+
+/* Nav toggle */
+
+.nav-toggle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    z-index: 1;
+    width: 30px;
+    padding: 10px 0;
+    display: none;
+}
+
+.nav-toggle__item {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.nav-toggle__item::before,
+.nav-toggle__item::after {
+    content: "";
+    width: 30px;
+    height: 3px;
+    position: absolute;
+    background-color: white;
+    left: 0;
+    z-index: 1;
+}
+
+.nav-toggle__item::before {
+    top: -10px;
+}
+
+.nav-toggle__item::after {
+    top: 10px;
 }
 
 
@@ -965,10 +1016,14 @@ input:focus {
 
 .footer-inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.footer-col {}
+.footer-col {
+    max-width: 100%;
+    margin: 20px;
+}
 
 .footer-col.first {
     width: 450px;
@@ -1143,15 +1198,11 @@ input:focus {
     cursor: pointer;
 }
 
-@media (max-width: 1280px) {
-    /* Card */
-    .card {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 1200px) {
+@media (max-width: 1366px) {
     /* Intro */
+    .intro {
+        min-height: 768px;
+    }
     .intro__suptitle {
         font-size: 52px;
     }
@@ -1159,12 +1210,53 @@ input:focus {
         font-size: 120px;
     }
     .intro__title:after {
-        margin: 40px auto;
+        margin: 35px auto;
+    }
+}
+
+@media (max-width: 1280px) {
+    /* Intro */
+    .intro {
+        min-height: 720px;
+    }
+    .intro__suptitle {
+        font-size: 50px;
+    }
+    .intro__title {
+        font-size: 100px;
+    }
+    .intro__title:after {
+        margin: 30px auto;
     }
     .card__item {
         width: 33.333333%;
         max-width: 380px;
     }
+    /* Card */
+    .card {
+        justify-content: center;
+    }
+    /* Footer */
+    .footer .container {
+        padding: 0px;
+    }
+    .footer-col.footer-col.first {
+        width: 100%;
+    }
+    .footer-inner {
+        max-width: 100%;
+        width: 710px;
+        margin: 0 auto;
+    }
+    .footer-logo {
+        margin-bottom: 5px;
+    }
+    .footer-text {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1200px) {
     /* We do */
     .wedo {
         justify-content: center;
@@ -1221,7 +1313,9 @@ input:focus {
 }
 
 @media (max-width: 990px) {
-    /* Intro */
+    .intro {
+        min-height: 560px;
+    }
     .intro__suptitle {
         font-size: 32px;
     }
@@ -1230,6 +1324,9 @@ input:focus {
     }
     .intro__title:after {
         margin: 30px auto;
+    }
+    .slider {
+        bottom: 20px;
     }
     /* Card */
     .card {
@@ -1284,9 +1381,18 @@ input:focus {
 }
 
 @media (max-width: 770px) {
-    /* Header */
-    .header {
-        margin-top: 10px;
+    /* Intro */
+    .intro {
+        min-height: 500px;
+    }
+    .intro__suptitle {
+        font-size: 43px;
+    }
+    .intro__title {
+        font-size: 60px;
+    }
+    .intro__title:after {
+        margin: 25px auto;
     }
     /* Section */
     .section {
@@ -1299,9 +1405,47 @@ input:focus {
     .section--grey {
         padding: 40px 0;
     }
+    .footer {
+        padding: 40px 0;
+    }
+    /* Header */
+    .header-mobile {
+        backdrop-filter: blur(3px);
+        background-color: rgba(0, 0, 0, 0.18);
+        margin-top: 0px;
+        padding: 15px 0px 0px 0px;
+        position: fixed;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.18);
+        transition: backdrop-filter .5s, background .5s;
+    }
+    .header-mobile:hover {
+        backdrop-filter: blur(6px);
+        background-color: rgba(0, 0, 0, 0.28);
+    }
+    .header__inner {
+        position: relative;
+        margin-bottom: 12px;
+    }
     /* Intro */
     .nav {
         display: none;
+    }
+    .nav.mobile {
+        padding: 3px 0px 3px 0px;
+        display: block;
+        margin: 0 -15px;
+        box-shadow: inset 1px 4px 9px -6px;
+    }
+    .nav__link {
+        display: block;
+        padding: 10px 15px;
+        margin: 0;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .header-mobile {
+        display: block;
     }
     .slider__item__wrapper {
         display: none;
@@ -1349,10 +1493,41 @@ input:focus {
     .reviews__text {
         font-size: 18px;
     }
+    /* Footer */
+    .footer-col.footer-col {
+        margin: 15px;
+    }
+    .footer-logo {
+        margin-bottom: 5px;
+    }
+    .footer-text {
+        margin-bottom: 30px;
+    }
+    .footer-label {
+        margin-bottom: 30px;
+    }
+    .footer-col.second {
+        width: 320px;
+    }
+    .blogs__item-content {
+        padding: 0px 3px 0px 10px;
+    }
+    .blogs__item-title {
+        font-size: 11px;
+    }
+    .instagram__item {
+        margin: 1px;
+    }
+    .footer-col.third {
+        width: 270px;
+    }
 }
 
 @media (max-width: 575px) {
     /* Intro */
+    .intro {
+        min-height: 400px;
+    }
     .intro__suptitle {
         font-size: 22px;
     }
@@ -1371,6 +1546,9 @@ input:focus {
         padding-bottom: 0px;
     }
     .section--grey {
+        padding: 25px 0;
+    }
+    .footer {
         padding: 25px 0;
     }
     .section__suptitle {
@@ -1503,6 +1681,15 @@ input:focus {
 
 @media (max-width: 485px) {
     /* Intro */
+    .intro {
+        min-height: 360px;
+    }
+    .intro__suptitle {
+        margin-bottom: 2px;
+    }
+    .btn {
+        padding: 5px 0;
+    }
     .slider__item {
         padding-top: 5px;
         margin: 0px 10px;
@@ -1575,6 +1762,25 @@ input:focus {
     }
     .blog__item {
         padding-left: 12px;
+    }
+    /* Footer */
+    .footer-logo {
+        font-size: 37px;
+    }
+    .footer-text {
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 15px;
+    }
+    .follow {
+        margin: 10px 0px 20px 0px;
+    }
+    .input-text {
+        width: 59%;
+    }
+    .input-submit {
+        width: 39%;
+        font-size: 13px;
     }
 }
 
