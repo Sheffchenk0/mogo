@@ -121,7 +121,6 @@ input:focus {
 
 .nav.mobile {
     display: none;
-    transition: .5s;
 }
 
 .nav__link {
@@ -1432,7 +1431,6 @@ input:focus {
         transform: translateY(-100vh);
         position: absolute;
         display: block;
-        transition: transform .6s, background-color 1s;
         width: 100%;
         margin-top: 75px;
         height: calc(100% - 75px);
