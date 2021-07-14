@@ -9,40 +9,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@300;400;600;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://kit.fontawesome.com/36b3e618a3.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Mogo</title>
 </head>
 
 <body>
-    <header class="header header-mobile">
-        <div class="container">
-            <div class="header__inner">
-                <div class="header__logo">
-                    Mogo
+    <div>
+        <header class="header header-mobile">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="header__logo">
+                        Mogo
+                    </div>
+                    <nav class="nav">
+                        <a class="nav__link active" href="#">About</a>
+                        <a class="nav__link" href="#">Service</a>
+                        <a class="nav__link" href="#">Work</a>
+                        <a class="nav__link" href="#">Blog</a>
+                        <a class="nav__link" href="#">Contact</a>
+                        <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
+                    </nav>
+                    <div class="nav-toggle">
+                        <span class="nav-toggle__item"></span>
+                    </div>
                 </div>
-                <nav class="nav">
-                    <a class="nav__link active" href="#">About</a>
-                    <a class="nav__link" href="#">Service</a>
-                    <a class="nav__link" href="#">Work</a>
-                    <a class="nav__link" href="#">Blog</a>
-                    <a class="nav__link" href="#">Contact</a>
-                    <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
-                    <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
-                </nav>
-                <div class="nav-toggle">
-                    <span class="nav-toggle__item"></span>
-                </div>
+
             </div>
-            <nav class="nav mobile">
-                <a class="nav__link active" href="#">About</a>
-                <a class="nav__link" href="#">Service</a>
-                <a class="nav__link" href="#">Work</a>
-                <a class="nav__link" href="#">Blog</a>
-                <a class="nav__link" href="#">Contact</a>
-                <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
-            </nav>
-        </div>
-    </header>
+        </header>
+        <nav class="nav mobile">
+            <a class="nav__link active" href="#">About</a>
+            <a class="nav__link" href="#">Service</a>
+            <a class="nav__link" href="#">Work</a>
+            <a class="nav__link" href="#">Blog</a>
+            <a class="nav__link" href="#">Contact</a>
+            <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
+        </nav>
+    </div>
     <div class="intro">
         <div class="container">
             <div class="intro__inner">
@@ -628,5 +632,36 @@
         </div>
     </footer>
 </body>
+<script>
+    let scroll;
+    scroll = 0;
+    $(window).scroll(function() {
+        scroll = $(document).scrollTop();
+        $('.nav').css('transform', 'translateY(' + (scroll - $(window).height()) + 'px)');
+    });
+
+    function handler1() {
+        $('.nav').css('transform', 'translateY(' + (scroll) + 'px)');
+        $("body").css("overflow", "hidden");
+        $('.nav.mobile').css('backdrop-filter', 'blur(9px)');
+        $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.48)');
+        $('.header').css('background-color', 'rgba(0, 0, 0, 0.48)');
+        $('.header').css('backdrop-filter', 'blur(8px)');
+        $('.header-mobile').css('box-shadow', 'none');
+        $(this).one("click", handler2);
+    }
+
+    function handler2() {
+        $('.nav').css('transform', 'translateY(' + (scroll - $(window).height()) + 'px)');
+        $("body").css("overflow-y", "scroll");
+        $('.nav.mobile').css('backdrop-filter', 'blur(3px)');
+        $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.18)');
+        $('.header').css('background-color', 'rgba(0, 0, 0, 0.18)');
+        $('.header').css('backdrop-filter', 'blur(3px)');
+        $('.header-mobile').css('box-shadow', '0px 5px 8px rgba(0, 0, 0, 0.18)');
+        $(this).one("click", handler1);
+    }
+    $(".nav-toggle").one("click", handler1);
+</script>
 
 </html>
