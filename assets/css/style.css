@@ -176,7 +176,7 @@ input:focus {
     right: 15px;
     z-index: 1;
     width: 30px;
-    padding: 10px 0;
+    height: 30px;
     display: none;
 }
 
@@ -1415,7 +1415,7 @@ input:focus {
         margin-top: 0px;
         padding: 15px 0px 0px 0px;
         position: fixed;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.18);
+        box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.18);
         transition: backdrop-filter .5s, background .5s;
     }
     .header-mobile:hover {
@@ -1430,11 +1430,24 @@ input:focus {
     .nav {
         display: none;
     }
+    .nav__link:hover {
+        color: white;
+        font-weight: 900;
+    }
+    .nav__link.active {
+        font-weight: 900;
+        color: white;
+    }
+    .nav__link:after {
+        background-color: white;
+    }
+    .header:hover .nav.mobile {
+        display: block;
+    }
     .nav.mobile {
         padding: 3px 0px 3px 0px;
-        display: block;
         margin: 0 -15px;
-        box-shadow: inset 1px 4px 9px -6px;
+        box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.376);
     }
     .nav__link {
         display: block;
