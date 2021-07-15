@@ -654,7 +654,7 @@
     }
 
     function handler2() {
-        $('.nav.mobile').css('transform', 'translateY(' + (scroll - $(window).height()) + 'px)');
+        $('.nav.mobile').css('transform', 'translateY(' + (scroll - screen.height) + 'px)');
         $("body").css("overflow-y", "scroll");
         $('.nav.mobile').css('backdrop-filter', 'blur(3px)');
         $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.18)');
