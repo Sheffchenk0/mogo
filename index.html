@@ -641,29 +641,35 @@
     });
 
     function handler1() {
-        $('.nav.mobile').css('height', '100vh');
-        $('.nav.mobile').css('transition', 'transform .6s, background-color 1s');
-        $('.nav.mobile').css('transform', 'translateY(' + (scroll) + 'px)');
-        $("body").css("overflow", "hidden");
-        $('.nav.mobile').css('backdrop-filter', 'blur(9px)');
-        $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.48)');
-        $('.header').css('background-color', 'rgba(0, 0, 0, 0.48)');
-        $('.header').css('backdrop-filter', 'blur(8px)');
-        $('.header-mobile').css('box-shadow', 'none');
-        $(this).one("click", handler2);
+        $('.nav.mobile').css('display', 'block');
+        setTimeout(() => {
+            $('.nav.mobile').css('height', '100vh');
+            $('.nav.mobile').css('transition', 'transform .6s, background-color 1s');
+            $('.nav.mobile').css('transform', 'translateY(' + (scroll) + 'px)');
+            $("body").css("overflow", "hidden");
+            $('.nav.mobile').css('backdrop-filter', 'blur(9px)');
+            $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.48)');
+            $('.header').css('background-color', 'rgba(0, 0, 0, 0.48)');
+            $('.header').css('backdrop-filter', 'blur(8px)');
+            $('.header-mobile').css('box-shadow', 'none');
+            $(this).one("click", handler2);
+        }, 70);
     }
 
     function handler2() {
         $('.nav.mobile').css('transform', 'translateY(' + (scroll - screen.height) + 'px)');
         $("body").css("overflow-y", "scroll");
-        $('.nav.mobile').css('backdrop-filter', 'blur(3px)');
-        $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.18)');
+        $('.nav.mobile').css('backdrop-filter', 'blur(0px)');
+        $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.0)');
         $('.header').css('background-color', 'rgba(0, 0, 0, 0.18)');
         $('.header').css('backdrop-filter', 'blur(3px)');
         $('.header-mobile').css('box-shadow', '0px 5px 8px rgba(0, 0, 0, 0.18)');
         setTimeout(() => {
             $('.nav.mobile').css('transition', '0s');
         }, 30);
+        setTimeout(() => {
+            $('.nav.mobile').css('display', 'none');
+        }, 700);
         $(this).one("click", handler1);
     }
     $(".nav-toggle").one("click", handler1);
