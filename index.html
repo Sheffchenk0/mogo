@@ -14,30 +14,28 @@
 </head>
 
 <body>
-    <div>
-        <header class="header header-mobile">
-            <div class="container">
-                <div class="header__inner">
-                    <div class="header__logo">
-                        Mogo
-                    </div>
-                    <nav class="nav">
-                        <a class="nav__link active" href="#">About</a>
-                        <a class="nav__link" href="#">Service</a>
-                        <a class="nav__link" href="#">Work</a>
-                        <a class="nav__link" href="#">Blog</a>
-                        <a class="nav__link" href="#">Contact</a>
-                        <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
-                        <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
-                    </nav>
-                    <div class="nav-toggle">
-                        <span class="nav-toggle__item"></span>
-                    </div>
+    <header class="header header-mobile">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    Mogo
                 </div>
-
+                <!-- <nav class="nav">
+                    <a class="nav__link active" href="#">About</a>
+                    <a class="nav__link" href="#">Service</a>
+                    <a class="nav__link" href="#">Work</a>
+                    <a class="nav__link" href="#">Blog</a>
+                    <a class="nav__link" href="#">Contact</a>
+                    <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                    <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
+                </nav> -->
+                <div class="nav-toggle">
+                    <span class="nav-toggle__item"></span>
+                </div>
             </div>
-        </header>
-        <nav class="nav mobile">
+
+        </div>
+        <nav class="nav">
             <a class="nav__link active" href="#">About</a>
             <a class="nav__link" href="#">Service</a>
             <a class="nav__link" href="#">Work</a>
@@ -46,7 +44,7 @@
             <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
             <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
         </nav>
-    </div>
+    </header>
     <div class="intro">
         <div class="container">
             <div class="intro__inner">
@@ -635,41 +633,36 @@
 <script>
     let scroll;
     scroll = 0;
-    $(window).scroll(function() {
-        scroll = $(document).scrollTop();
-        $('.nav.mobile').css('transform', 'translateY(' + (scroll - screen.height) + 'px)');
+    // $(window).scroll(function() {
+    //     scroll = $(document).scrollTop();
+    //     $('.nav.mobile').css('transform', 'translateY(' + (scroll - screen.height) + 'px)');
+    // });
+    window.addEventListener('resize', () => {
+        handler2();
     });
 
     function handler1() {
-        $('.nav.mobile').css('display', 'block');
-        setTimeout(() => {
-            $('.nav.mobile').css('height', '100vh');
-            $('.nav.mobile').css('transition', 'transform .6s, background-color 1s');
-            $('.nav.mobile').css('transform', 'translateY(' + (scroll) + 'px)');
-            $("body").css("overflow", "hidden");
-            $('.nav.mobile').css('backdrop-filter', 'blur(9px)');
-            $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.48)');
-            $('.header').css('background-color', 'rgba(0, 0, 0, 0.48)');
-            $('.header').css('backdrop-filter', 'blur(8px)');
-            $('.header-mobile').css('box-shadow', 'none');
-            $(this).one("click", handler2);
-        }, 70);
+        $('.header').css('height', '100%');
+        $('.nav').css('transition', 'transform .6s, background-color 1s');
+        $('.nav').css('transform', 'translateY(0px)');
+        $("body").css("overflow", "hidden");
+        // $('.nav').css('backdrop-filter', 'blur(9px)');
+        // $('.nav').css('background-color', 'rgba(0, 0, 0, 0.48)');
+        $('.header').css('background-color', 'rgba(0, 0, 0, 0.48)');
+        $('.header').css('backdrop-filter', 'blur(4px)');
+        // $('.header-mobile').css('box-shadow', 'none');
+        $(this).one("click", handler2);
     }
 
     function handler2() {
-        $('.nav.mobile').css('transform', 'translateY(' + (scroll - screen.height) + 'px)');
+        $('.header').css('height', 'auto');
+        $('.nav').css('transform', 'translateY(-509px)');
         $("body").css("overflow-y", "scroll");
-        $('.nav.mobile').css('backdrop-filter', 'blur(0px)');
-        $('.nav.mobile').css('background-color', 'rgba(0, 0, 0, 0.0)');
+        // $('.nav').css('backdrop-filter', 'blur(0px)');
+        // $('.nav').css('background-color', 'rgba(0, 0, 0, 0.0)');
         $('.header').css('background-color', 'rgba(0, 0, 0, 0.18)');
         $('.header').css('backdrop-filter', 'blur(3px)');
         $('.header-mobile').css('box-shadow', '0px 5px 8px rgba(0, 0, 0, 0.18)');
-        setTimeout(() => {
-            $('.nav.mobile').css('transition', '0s');
-        }, 30);
-        setTimeout(() => {
-            $('.nav.mobile').css('display', 'none');
-        }, 700);
         $(this).one("click", handler1);
     }
     $(".nav-toggle").one("click", handler1);
