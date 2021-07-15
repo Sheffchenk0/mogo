@@ -632,12 +632,6 @@
     </footer>
 </body>
 <script>
-    let scroll;
-    scroll = 0;
-    // $(window).scroll(function() {
-    //     scroll = $(document).scrollTop();
-    //     $('.nav.mobile').css('transform', 'translateY(' + (scroll - screen.height) + 'px)');
-    // });
     window.addEventListener('resize', () => {
         handler2();
     });
@@ -649,8 +643,9 @@
         $("body").css("overflow", "hidden");
         // $('.nav').css('backdrop-filter', 'blur(9px)');
         $('.nav').css('background-color', 'rgba(0, 0, 0, 0.48)');
-        $('.header').css('background-color', 'rgba(0, 0, 0, 0.48)');
-        $('.header').css('backdrop-filter', 'blur(4px)');
+        $('.header').css('background-color', 'rgba(0, 0, 0, 0.58)');
+        $('.header').css('backdrop-filter', 'blur(7px)');
+        $('.nav-toggle').addClass('active');
         // $('.header-mobile').css('box-shadow', 'none');
         $(this).one("click", handler2);
     }
@@ -664,6 +659,7 @@
         $('.header').css('background-color', 'rgba(0, 0, 0, 0.18)');
         $('.header').css('backdrop-filter', 'blur(3px)');
         $('.header-mobile').css('box-shadow', '0px 5px 8px rgba(0, 0, 0, 0.18)');
+        $('.nav-toggle').removeClass('active');
         $(this).one("click", handler1);
     }
     $(".nav-toggle").one("click", handler1);
