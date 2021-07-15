@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- <div class="wrapper"></div> -->
     <header class="header header-mobile">
         <div class="container">
             <div class="header__inner">
@@ -35,16 +36,16 @@
             </div>
 
         </div>
-        <nav class="nav">
-            <a class="nav__link active" href="#">About</a>
-            <a class="nav__link" href="#">Service</a>
-            <a class="nav__link" href="#">Work</a>
-            <a class="nav__link" href="#">Blog</a>
-            <a class="nav__link" href="#">Contact</a>
-            <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
-            <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
-        </nav>
     </header>
+    <nav class="nav">
+        <a class="nav__link active" href="#">About</a>
+        <a class="nav__link" href="#">Service</a>
+        <a class="nav__link" href="#">Work</a>
+        <a class="nav__link" href="#">Blog</a>
+        <a class="nav__link" href="#">Contact</a>
+        <a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i></a>
+        <a class="nav__link" href="#"><i class="fas fa-search"></i></a>
+    </nav>
     <div class="intro">
         <div class="container">
             <div class="intro__inner">
@@ -642,12 +643,12 @@
     });
 
     function handler1() {
-        $('.header').css('height', '100%');
+        $('.header').css('max-height', '100%');
         $('.nav').css('transition', 'transform .6s, background-color 1s');
-        $('.nav').css('transform', 'translateY(0px)');
+        $('.nav').css('transform', 'translateY(75px)');
         $("body").css("overflow", "hidden");
         // $('.nav').css('backdrop-filter', 'blur(9px)');
-        // $('.nav').css('background-color', 'rgba(0, 0, 0, 0.48)');
+        $('.nav').css('background-color', 'rgba(0, 0, 0, 0.48)');
         $('.header').css('background-color', 'rgba(0, 0, 0, 0.48)');
         $('.header').css('backdrop-filter', 'blur(4px)');
         // $('.header-mobile').css('box-shadow', 'none');
@@ -655,8 +656,8 @@
     }
 
     function handler2() {
-        $('.header').css('height', 'auto');
-        $('.nav').css('transform', 'translateY(-509px)');
+        // $('.header').css('height', 'auto');
+        $('.nav').css('transform', 'translateY(-100%)');
         $("body").css("overflow-y", "scroll");
         // $('.nav').css('backdrop-filter', 'blur(0px)');
         // $('.nav').css('background-color', 'rgba(0, 0, 0, 0.0)');
