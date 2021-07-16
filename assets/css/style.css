@@ -132,15 +132,9 @@ input:focus {
     font-size: 14px;
 }
 
-.nav__items {
-    max-height: calc(100% - 75px);
-    overflow: scroll;
+.nav.mobile {
+    display: none;
 }
-
-
-/* .nav::-webkit-scrollbar {
-    width: 0px;
-} */
 
 .nav__link {
     color: #fff;
@@ -149,7 +143,7 @@ input:focus {
     display: inline-block;
     vertical-align: top;
     margin: 0 15px;
-    position: static;
+    position: relative;
 }
 
 .nav__link i {
@@ -1460,20 +1454,22 @@ input:focus {
     }
     /* Intro */
     .nav {
-        /* transform: translateY(-400px); */
+        display: none;
+    }
+    .nav.mobile {
+        display: block;
         transform: translateY(calc(-100%));
         position: fixed;
         height: 100vh;
         width: 100%;
         z-index: 1;
         max-height: calc(100vh - 75px);
-        overflow: scroll;
+        overflow-x: hidden;
         backdrop-filter: blur(3px);
-        overflow: scroll;
+        z-index: 2;
     }
     .nav__link:hover {
         color: white;
-        font-weight: 900;
         background-color: rgba(255, 255, 255, 0.089);
     }
     .nav__link.active {
